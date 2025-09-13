@@ -1,0 +1,231 @@
+* {
+    margin: 0px; /* Reset margin */
+    padding: 0px; /* Reset padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: 'Poppins', sans-serif; /* Set default font */
+}
+
+body{
+    font-family: 'Poppins', sans-serif; /* Set default font for body */
+}
+
+.container {
+    width: 1440px; /* Set a fixed width for the container */
+    margin: 0px auto ; /* Center the container */
+}
+
+#top-menu { 
+    background-color:#ededed; /* Set background color */
+    border-bottom: 1px solid #ececec; /* Add a bottom border */
+    height: 70px; /* Set height */
+    padding: 15px 0px; /* Add padding */
+    font-size: 20px; /* Set font size */
+}
+
+#top-menu a { 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  display: block; /* Make links block elements */ 
+  padding: 5px 20px; /* Add padding */
+  text-decoration: none; /* Remove underline from links */
+  color:  #003366; /* Set text color */
+}
+
+#top-menu .container {
+    display: flex; /* Use flexbox for layout */
+}
+
+.margin-left-auto{
+    margin-left: auto; /* Automatically adjust left margin to push element to the right */
+}
+
+#banner-row .container{
+    display: flex; /* Use flexbox for layout */
+    height: 100px; /* Set height */
+    align-items: center; /* Center items vertically */
+}
+
+#banner-row .korpa {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+}
+
+#banner-row .korpa img{
+    margin-right: 20px; /* Add right margin */
+    width: 48px; /* Set width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#banner-row .korpa .broj-stavki{
+    text-align: right; /* Align text to the right */
+    font-size: 18px; /* Set font size */  
+    font-weight: 500;
+    color: #323232; /* Set text color */
+}
+
+#banner-row .korpa .ukupna-cena { /* ID selector + nested classes: visoka specifičnost, razmotriti prebacivanje na klase radi fleksibilnosti */
+    text-align: right; /* poravnanje teksta udesno za prikaz ukupne cene */
+    font-size: 20px; /* fiksna veličina fonta u pikselima – bolje koristiti rem za responzivnost */
+    color: #0D5E71 ; /* plavo-siva nijansa teksta – proveriti kontrast sa pozadinom */
+    font-weight: bold; /* naglašava tekst podebljanim fontom */
+}
+
+#filter-red { /* ID selektor: jedinstvena komponenta filter sekcije, visoka specifičnost */
+    background-color:#0D5E71 ; /* pozadina plavo-sive boje, poklapa se sa bojom teksta iz banner-row sekcije */
+    border-bottom: 1px solid #003366 ; /* crna linija ispod sekcije – može se izvući u promenljivu boje */
+}
+
+#filter-red .container { /* unutrašnji kontejner unutar filter-red sekcije */
+    display: flex; /* koristi fleks kontejner za raspored linkova u isti red */
+    height: 60px; /* fiksna visina – proveriti mobile prilagodljivost */
+    align-items: center; /* vertikalno centriranje sadržaja unutar kontejnera */
+}
+
+#filter-red a { /* stilizacija linkova u filter-red sekciji */
+    text-decoration: none; /* uklanja podvlačenje linkova */
+    color: #ededed; /* bela boja teksta linkova radi kontrasta sa tamnom pozadinom */
+    font-size: 22px; /* veličina fonta – može se izvući u globalnu tipografsku skalu */
+    padding: 10px 30px; /* unutrašnji razmak: 10px vertikalno, 30px horizontalno */
+    flex-grow: 1; /* linkovi ravnomerno zauzimaju raspoloživi prostor */
+    text-align: center; /* centriranje teksta unutar svake link stavke */
+    border-right: 1px solid #ededed; /* bela linija između linkova – poslednji se uklanja sledećom pravilom */
+}
+
+#filter-red a:last-child { /* selektor za poslednji link */
+    border-right: none; /* uklanja separator na desnoj ivici poslednjeg linka */
+}
+
+#info-red { /* ID selektor: jedinstvena sekcija informacija */
+    background-color:	#FF6F00 ; /* žuto-zlatna pozadina – proveriti usklađenost sa brend paletom */
+    font-weight: 700;
+}
+
+#info-red .container { /* unutrašnji kontejner unutar info-red sekcije */
+    display: flex; /* fleks kontejner za raspored informacija */
+    height: 140px; /* fiksna visina – razmotriti fluidni ili min-height za bolju responzivnost */
+    align-items: center; /* vertikalno centriranje elemenata */
+    justify-content: space-between; /* horizontalno raspoređuje elemente s maksimalnim razmakom */
+} /* zatvara prethodno pravilo; preporučljivo staviti brace na sopstveni red zbog čitljivosti */
+
+#info-red .container div { /* div-ovi unutar .container u #info-red sekciji; razmotri upotrebu specifičnijih klasa umesto generičkog div-a */
+    font-size: 20px; /* fiksna veličina teksta; za responzivnost i pristupačnost bolje koristiti rem */
+}
+
+#info-red .container img { /* slike unutar .container u #info-red; definiše osnovnu veličinu svih slika */
+    width: 100px; /* popunjava tačno 100px širine; proveri kako se ponaša na manjim ekranima */
+    height: auto; /* čuva odnos širine i visine, dobra praksa za fleksibilne slike */
+}
+
+#info-red .container img.mala { /* specifična klasa .mala za smanjene slike; override osnovne dimenzije */
+    width: 48px; /* ikonice ili male ilustracije; može se izvući u zajedničku utilitu */
+    height: auto; /* održava proporcije i na maloj veličini */
+}
+
+#main .container { /* glavni wrapper unutar #main; koristi .container klasu za grid/flex raspored */
+    display: flex; /* uspostavlja fleks-kontejner za horizontalno raspoređivanje dece */
+}
+
+#sidebar { /* bočna traka sa fiksnom širinom */
+    width: 340px; /* fiksna širina; za fluidnost koristi max-width ili % */
+}
+
+#sadrzaj { /* centralni sadržaj pored sidebar-a */
+    flex-grow: 1; /* omogućava da zauzme preostali prostor unutar flex-kontejnera */
+    flex-basis: 0; /* početna osnovna veličina pre rasta; garantuje proporcionalno raspoređivanje */
+}
+
+.title { /* univerzalni stil za naslove sekcija */
+    font-size: 28px; /* glavni naslov, prati tipografski skalni princip */
+    font-weight: bold; /* vizuelno isticanje */
+    padding-bottom: 5px; /* blag razmak ispod teksta za odvajanje */
+    margin-top: 15px; /* razmak iznad */
+    margin-bottom: 15px; /* razmak ispod; moglo bi se skratiti kao margin: 15px 0 */
+    border-bottom: 1px solid #999999; /* linija ispod naslova, boja usklađena sa tekstom */
+    color: #999999; /* neutralna siva nijansa; proveriti kontrast sa pozadinom */
+}
+
+.grupa-filtera { /* kontejner za grupu filtera */
+    margin: 10px 0; /* vertikalni razmak; 0 za levo/desno */
+}
+
+.grupa-filtera .subtitle { /* podnaslov unutar grupe filtera */
+    font-weight: 700;
+    font-size: 24px; /* malo manje od .title, održava hijerarhiju */
+    color:	#0D5E71  ; /* žuta boja iz brend palete */
+    margin-bottom: 5px; /* razmak ispod teksta */
+}
+
+.filter { /* wrapper za pojedinačni filter */
+    margin: 3px 0 3px 15px; /* top/bottom 3px, levo 15px za indentaciju */
+    font-size: 24px; /* ista veličina kao subtitle za doslednost */
+    color: #b3b3b3; /* svetlosiva nijansa; proveri pristupačnost */
+}
+
+.filter input[type="checkbox"] { /* skrivanje originalnog checkbox-a */
+    display: none; /* potpuno uklanja iz layout-a; obezbedi da labela bude kliktabilna */
+}
+
+.filter input[type="checkbox"] + label { /* custom stil label-e povezana sa checkbox-om */
+    width: 24px; /* kvadratna površina za vizuelni checkbox */
+    height: 24px; /* ista visina za zadržavanje proporcija */
+    border: 1px solid #999999; /* crta u boji teksta za neaktivno stanje */
+    display: inline-block; /* omogućava dimenzije na elementu inline tipa */
+    vertical-align: middle; /* usklađuje sa pratećim tekstom */
+}
+
+.filter input[type="checkbox"]:checked + label { /* stil za označeno stanje */
+    background-color: #FF6F00 ; /* puni labelu žutom bojom kada je checkbox čekiran */
+}
+
+#sadrzaj .selector { /* selektor unutar glavnog sadržaja */
+    font-weight: 700;
+    font-size: 24px; /* naglašen tekst selektora; prati tipografski sistem */
+    color:#0D5E71 ; /* boja akcenta iz brend palete */
+    pad: 15px 0; /* NEVALIDNO svojstvo: treba padding, ne pad */
+    margin-left: 10px; /* odmak od prethodnog elementa */
+}
+
+.obican-selector { /* stil za običan selector (npr. dropdown) */
+    padding: 4px; /* unutrašnji razmak za povećanje klikabilnosti */
+    border: 1px solid #999999; /* konzistentna siva linija */
+    vertical-align: text-top; /* poravnanje sa tekstom; testirati u više pregledača */
+    margin-left: 20px; /* razmak sa leve strane */
+}
+
+#artikli { /* kontejner za listu artikala */
+    display: flex; /* koristi flex za raspored kartica */
+    flex-wrap: wrap; /* dozvoljava prelazak u novi red kad nema mesta */
+    justify-content: space-between; /* raspoređuje stavke s jednakim razmakom */
+    align-items: stretch; /* iste visine kartica unutar reda */
+}
+
+.artikal { /* pojedinačna artikal-kartica, verovatno <a> element */
+    display: block; /* cela površina kartice je klikabilna */
+    width: 32%; /* oko 3 kartice po redu s razmacima; proveri gutter */
+    border: 1px solid #ececec; /* diskretan okvir za naglašavanje kartice */
+    margin: 5px; /* razmak između kartica */
+    padding: 5px; /* unutrašnji razmak */
+    text-decoration: none; /* uklanja podvlačenje ako je link */
+}
+
+.artikal img { /* slika proizvoda unutar kartice */
+    width: 100%; /* popunjava širinu roditelja */
+    height: auto; /* održava proporcije */
+}
+
+.artikal .cena { /* cena proizvoda */
+    font-size: 28px; /* naglašen prikaz cene */
+    font-weight: 500;
+    color: #0D5E71; /* žuta boja za isticanje cene */
+    margin: 3px 0; /* razmak iznad i ispod */
+}
+
+.artikal .naziv,
+.artikal .podnaslov { /* naziv i podnaslov proizvoda */
+    font-size: 18px; /* manje od cene, ali dovoljno čitljivo */
+    color: #b3b3b3; /* svetlosiva boja za sekundirani tekst */
+}
+.ellipsis 
+{ white-space: nowrap; overflow: hidden;
+text-overflow: ellipsis; } 
