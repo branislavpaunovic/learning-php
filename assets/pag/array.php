@@ -39,9 +39,26 @@
             echo($niz[3]) . "<br><hr>";
                 
 
-            $osobe = ["Ime" => "Marko", "godine" => 18 , "zanimanje" => "programer"];
-            var_dump($osobe);
+            $osoba = [
+                "Ime"       => "Marko", 
+                "godine"    => 18 , 
+                "zanimanje" => "programer"]; // asocijativni niz
             
+            var_dump($osoba) ;
+            
+            echo "<br><hr>";
+            echo $osoba["Ime"] . "<br><hr>";
+
+            $gradovi = [
+                "Srbija" => ["Beograd", "Novi Sad", "Niš"],
+                "Hrvatska" => ["Zagreb", "Rijeka", "Split"],
+                "Crna Gora" => ["Podgorica", "Nikšić", "Herceg Novi"],
+                "BiH" => ["Sarajevo", "Banja Luka", "Trebninje"]
+            ]; // visedimenzionalni nizovi
+
+            var_dump($gradovi);
+            echo "<br><hr>";
+            echo $gradovi["Crna Gora"][0];
 
             ?>            
         </body>
