@@ -31,8 +31,19 @@
     </head> <!-- Body section contains the content of the webpage -->
     <!-- This is the main content area of the webpage -->
         <body> <!-- Start of body section -->
+    
+        <FONT></FONT>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <?php
+        </head>
+
+
+        <?php        
+          
+
+
+
             echo "Zdravo Branislave Paunoviću, ako ne naučiš PHP, nećeš moći da radiš na WordPressu!<br><hr>"; // ispisuje pozdravnu poruku sa HTML <br> i <hr> tagovima
             print_r("Zdravo Branislave Paunoviću, ako ne naučiš PHP, nećeš moći da radiš na WordPressu!<br><hr>"); // štampa niz u čitljivom formatu, ovde identično echo
 

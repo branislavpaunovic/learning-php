@@ -33,10 +33,16 @@
         <body> <!-- Start of body section -->
             <?php
             
-            $niz = array (1, 2, 5, 7, 9);
+            $niz = [10, 20, 50, 70, 90];
 
-            var_dump($niz);
+            var_dump($niz[3]);
+            echo($niz[3]) . "<br><hr>";
+                
+
+            $osobe = ["Ime" => "Marko", "godine" => 18 , "zanimanje" => "programer"];
+            var_dump($osobe);
             
+
             ?>            
         </body>
 </html>
