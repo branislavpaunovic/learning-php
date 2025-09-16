@@ -33,47 +33,67 @@
         <body> <!-- Start of body section -->
             <?php
             
-            $niz = [10, 20, 50, 70, 90];
-            var_dump($niz[3]);
-            echo($niz[3]) . "<br><hr>";            
+                $niz = [10, 20, 50, 70, 90];                             // kreira indeksirani niz sa 5 elemenata
+                var_dump($niz[3]);                                       // debug: ispiši detalje elementa na indeksu 3 (int(70))
+                echo($niz[3]) . "<br><hr>";                              // ispiši vrednost elementa na indeksu 3 (70) - napomena: concat ovde ne radi kako misliš
+                                                                        // (var_dump echo concat problem—bolje echo u zasebnom redu)
 
-            $osoba = [
-                "Ime"       => "Marko", 
-                "godine"    => 18 , 
-                "zanimanje" => "programer"]; // asocijativni niz
-            
-            var_dump($osoba) ;
-            echo "<br><hr>";
-            echo $osoba["Ime"] . "<br><hr>";
+                $osoba = [                                              // kreira asocijativni niz (array) sa ključevima Ime, godine, zanimanje
+                    "Ime"       => "Marko",
+                    "godine"    => 18,
+                    "zanimanje" => "programer"
+                ]; // asocijativni niz
 
-            $gradovi = [
-                "Srbija" => ["Beograd", "Novi Sad", "Niš"],
-                "Hrvatska" => ["Zagreb", "Rijeka", "Split"],
-                "Crna Gora" => ["Podgorica", "Nikšić", "Herceg Novi"],
-                "BiH" => ["Sarajevo", "Banja Luka", "Trebninje"]
-            ]; // visedimenzionalni nizovi
-            var_dump($gradovi);
-            $indeksi = [0, 2]; // elementi (gradovi) koje hocemo iz niza
-            $drzava = 'Crna Gora';                    
-            foreach ($indeksi as $i) {
-                if (isset ($gradovi[$drzava][$i]))
-                echo "<br><hr>";
-                echo "<strong>" . $gradovi[$drzava][$i] . "</strong><br><hr>";
-            };
+                var_dump($osoba);                                       // debug: ispiši celu strukturu asocijativnog niza
+                echo "<br><hr>";                                        // HTML: novi red i horizontalna linija
+                echo $osoba["Ime"] . "<br><hr>";                        // ispiši vrednost ključa "Ime" (Marko) i linija
 
-            $brojevi = [2, 4, 5 ];
-            var_dump($brojevi);
-            echo  "<br><hr>";
-            $broj_elemenata_u_nizu = count($brojevi);
-            echo $broj_elemenata_u_nizu  . "<br><hr>";
+                $gradovi = [                                            // višedimenzionalni (associative => indexed arrays)
+                    "Srbija" => ["Beograd", "Novi Sad", "Niš"],
+                    "Hrvatska" => ["Zagreb", "Rijeka", "Split"],
+                    "Crna Gora" => ["Podgorica", "Nikšić", "Herceg Novi"],
+                    "BiH" => ["Sarajevo", "Banja Luka", "Trebinje"]
+                ]; // visedimenzionalni nizovi
 
-            array_push($brojevi, 10, 15);
+                var_dump($gradovi);                                     // debug: ispiši kompletnu strukturu višedimenzionalnog niza
 
-            var_dump($brojevi);
-            echo  "<br><hr>";
-            $broj_elemenata_u_nizu = count($brojevi);
-            echo $broj_elemenata_u_nizu  . "<br><hr>";
+                $indeksi = [0, 2];                                      // niz indeksa koje želimo izabrati (0 = prvi, 2 = treći)
+                $drzava = 'Crna Gora';                                  // promenljiva koja sadrži ime države koju indeksiramo
 
+                foreach ($indeksi as $i) {                              // prolazak kroz svaki indeks (0 i 2)
+                     // BEZBEDNO: prvo proverimo da li država postoji, pa da li indeks postoji
+                    if (isset ($gradovi[$drzava][$i]))                  // PROVERA: da li postoji element na tom mestu (bezbedno čitanje)
+                        echo "<br><hr>";                                // ako postoji, ispiši <br><hr>  (samo OVA linija zavisi od if zbog nedostatka {} )
+                    echo "<strong>" . $gradovi[$drzava][$i] . "</strong><br><hr>"; // OVA linija se izvršava uvek; može izazvati NOTICE ako element ne postoji
+                };                                                       // kraj foreach petlje
+
+                $brojevi = [2, 4, 5 ];                                  // novi indeksirani niz sa 3 elementa
+                var_dump($brojevi);                                     // debug: ispiši strukturu niza
+                echo  "<br><hr>";                                       // HTML: novi red i linija
+                $broj_elemenata_u_nizu = count($brojevi);               // prebrojava elemente niza (count -> 3)
+                echo $broj_elemenata_u_nizu  . "<br><hr>";              // ispis broja elemenata (3) i linija
+
+                array_push($brojevi, 10, 15);                           // dodaje elemente 10 i 15 na kraj niza
+                var_dump($brojevi);                                     // debug: ispis niza posle dodavanja (sada 5 elemenata)
+                echo  "<br><hr>";                                       // HTML: novi red i linija
+                $broj_elemenata_u_nizu = count($brojevi);               // ponovo prebroj: sada vraća 5
+                echo $broj_elemenata_u_nizu  . "<br><hr>";              // ispis novog broja elemenata (5) i linija
+
+                $poslednji_element = array_pop($brojevi);               // uklanja i vraća poslednji element niza (15)
+                echo $poslednji_element . "<br><hr>";                   // ispis poslednjeg elementa koji je uklonjen (15)
+                var_dump($brojevi); echo "<br><hr>";                                     // debug: ispis niza nakon array_pop (sada [2,4,5,10])
+
+                $brojevi_1 = [1 , 2, 3];
+                $brojevi_2 = [4, 5, 6 ];
+
+                $spojeni_nizovi = array_merge($brojevi_1, $brojevi_2);
+                var_dump($spojeni_nizovi);  echo "<br><hr>";
+
+                $sortiranje_brojeva = [5, 2, 1 ,4, 3];
+                sort($sortiranje_brojeva);
+                var_dump($sortiranje_brojeva); echo "<br><hr>";
+                rsort($sortiranje_brojeva);
+                var_dump($sortiranje_brojeva); echo "<br><hr>";
             ?>   
         </body>
 </html>
