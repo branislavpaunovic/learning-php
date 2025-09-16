@@ -34,10 +34,8 @@
             <?php
             
             $niz = [10, 20, 50, 70, 90];
-
             var_dump($niz[3]);
-            echo($niz[3]) . "<br><hr>";
-                
+            echo($niz[3]) . "<br><hr>";            
 
             $osoba = [
                 "Ime"       => "Marko", 
@@ -45,7 +43,6 @@
                 "zanimanje" => "programer"]; // asocijativni niz
             
             var_dump($osoba) ;
-            
             echo "<br><hr>";
             echo $osoba["Ime"] . "<br><hr>";
 
@@ -55,11 +52,28 @@
                 "Crna Gora" => ["Podgorica", "Nikšić", "Herceg Novi"],
                 "BiH" => ["Sarajevo", "Banja Luka", "Trebninje"]
             ]; // visedimenzionalni nizovi
-
             var_dump($gradovi);
-            echo "<br><hr>";
-            echo $gradovi["Crna Gora"][0];
+            $indeksi = [0, 2]; // elementi (gradovi) koje hocemo iz niza
+            $drzava = 'Crna Gora';                    
+            foreach ($indeksi as $i) {
+                if (isset ($gradovi[$drzava][$i]))
+                echo "<br><hr>";
+                echo "<strong>" . $gradovi[$drzava][$i] . "</strong><br><hr>";
+            };
 
-            ?>            
+            $brojevi = [2, 4, 5 ];
+            var_dump($brojevi);
+            echo  "<br><hr>";
+            $broj_elemenata_u_nizu = count($brojevi);
+            echo $broj_elemenata_u_nizu  . "<br><hr>";
+
+            array_push($brojevi, 10, 15);
+
+            var_dump($brojevi);
+            echo  "<br><hr>";
+            $broj_elemenata_u_nizu = count($brojevi);
+            echo $broj_elemenata_u_nizu  . "<br><hr>";
+
+            ?>   
         </body>
 </html>
